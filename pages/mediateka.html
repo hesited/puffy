@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Дневник — Наше местечко</title>
+	<title>Медиатека — Наше местечко</title>
 	<link rel="stylesheet" href="../style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 </head>
@@ -25,7 +25,7 @@
 	<main class="container">
 		<header class="hero">
 			<h1 class="logo">PUFFY</h1>
-			<p class="tagline">Дневник</p>
+			<p class="tagline">Медиатека</p>
 			<p class="date" id="current-date"></p>
 		</header>
 		<section class="content">
@@ -40,8 +40,7 @@
 		<a href="mediateka.html" title="Медиатека">🎬 Медиатека</a>
 	</nav>
 	<script src="../auth.js"></script>
-	<script src="../geolocation.js"></script>
-	<script src="../notes.js"></script>
+	<script src="../mediateka.js"></script>
 	<script>
 		// Проверка аутентификации
 		if (localStorage.getItem("auth") !== "true") { 
@@ -50,7 +49,7 @@
 		
 		// Инициализация после загрузки всех скриптов
 		window.addEventListener('load', function() {
-			console.log('Window loaded, initializing diary...');
+			console.log('Window loaded, initializing mediateka...');
 			
 			// Установка даты
 			var d = new Date();
@@ -59,13 +58,13 @@
 				dateElement.textContent = d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
 			}
 			
-			// Инициализация дневника
+			// Инициализация медиатеки
 			setTimeout(function() {
-				if (typeof initializeDiary === 'function') {
-					console.log('Calling initializeDiary...');
-					initializeDiary();
+				if (typeof initializeMediateka === 'function') {
+					console.log('Calling initializeMediateka...');
+					initializeMediateka();
 				} else {
-					console.error('initializeDiary function not found');
+					console.error('initializeMediateka function not found');
 				}
 			}, 100);
 		});

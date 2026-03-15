@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Дневник — Наше местечко</title>
+	<title>Вишлист — Наше местечко</title>
 	<link rel="stylesheet" href="../style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 </head>
@@ -25,7 +25,7 @@
 	<main class="container">
 		<header class="hero">
 			<h1 class="logo">PUFFY</h1>
-			<p class="tagline">Дневник</p>
+			<p class="tagline">Вишлист</p>
 			<p class="date" id="current-date"></p>
 		</header>
 		<section class="content">
@@ -40,35 +40,34 @@
 		<a href="mediateka.html" title="Медиатека">🎬 Медиатека</a>
 	</nav>
 	<script src="../auth.js"></script>
-	<script src="../geolocation.js"></script>
-	<script src="../notes.js"></script>
-	<script>
-		// Проверка аутентификации
-		if (localStorage.getItem("auth") !== "true") { 
-			window.location.href = "../login.html"; 
+<script src="../wishlist.js"></script>
+<script>
+	// Проверка аутентификации
+	if (localStorage.getItem("auth") !== "true") { 
+		window.location.href = "../login.html"; 
+	}
+	
+	// Инициализация после загрузки всех скриптов
+	window.addEventListener('load', function() {
+		console.log('Window loaded, initializing wishlist...');
+		
+		// Установка даты
+		var d = new Date();
+		var dateElement = document.getElementById('current-date');
+		if (dateElement) {
+			dateElement.textContent = d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
 		}
 		
-		// Инициализация после загрузки всех скриптов
-		window.addEventListener('load', function() {
-			console.log('Window loaded, initializing diary...');
-			
-			// Установка даты
-			var d = new Date();
-			var dateElement = document.getElementById('current-date');
-			if (dateElement) {
-				dateElement.textContent = d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+		// Инициализация вишлиста
+		setTimeout(function() {
+			if (typeof initializeWishlist === 'function') {
+				console.log('Calling initializeWishlist...');
+				initializeWishlist();
+			} else {
+				console.error('initializeWishlist function not found');
 			}
-			
-			// Инициализация дневника
-			setTimeout(function() {
-				if (typeof initializeDiary === 'function') {
-					console.log('Calling initializeDiary...');
-					initializeDiary();
-				} else {
-					console.error('initializeDiary function not found');
-				}
-			}, 100);
-		});
-	</script>
+		}, 100);
+	});
+</script>
 </body>
 </html>
