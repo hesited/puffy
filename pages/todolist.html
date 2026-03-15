@@ -13,8 +13,13 @@
 		<div class="blob blob2"></div>
 		<div class="blob blob3"></div>
 	</div>
+	<!-- Логотип PUFFY над навигацией -->
+	<div class="top-logo">
+		<div class="logo-small">PUFFY</div>
+	</div>
+	
 	<nav class="top-menu" aria-label="Главное меню">
-		<a href="../index.html">Главная</a>
+		<a href="../index.html" class="home-btn">🏠 Главная</a>
 		<a href="diary.html">Дневник</a>
 		<a href="wishlist.html">Вишлист</a>
 		<a href="recipes.html">Рецепты</a>
@@ -24,20 +29,43 @@
 	</nav>
 	<main class="container">
 		<header class="hero">
-			<h1 class="logo">PUFFY</h1>
-			<p class="tagline">Список дел</p>
 			<p class="date" id="current-date"></p>
+			<div class="mobile-header">
+				<h1 class="page-title">Список дел</h1>
+				<div class="mobile-add-btn">
+					<a href="todolist.html?add=1" class="btn-primary mobile-btn">+ Добавить задачу</a>
+				</div>
+			</div>
 		</header>
 		<section class="content">
 		<!-- Контент будет генерироваться JavaScript -->
 	</section>
 	</main>
-	<nav class="bottom-nav" aria-label="Навигация">
-		<a href="diary.html" title="Дневник">📔 Дневник</a>
-		<a href="wishlist.html" title="Вишлист">⭐ Вишлист</a>
-		<a href="recipes.html" title="Рецепты">🍳 Рецепты</a>
-		<a href="todolist.html" title="Список дел">✅ Дела</a>
-		<a href="mediateka.html" title="Медиатека">🎬 Медиатека</a>
+	<nav class="bottom-nav" aria-label="Навигация по разделам">
+		<a href="../index.html" title="Главная" class="nav-item">
+			<span class="nav-icon">🏠</span>
+			<span class="nav-label">Главная</span>
+		</a>
+		<a href="diary.html" title="Дневник" class="nav-item">
+			<span class="nav-icon">📔</span>
+			<span class="nav-label">Дневник</span>
+		</a>
+		<a href="wishlist.html" title="Вишлист" class="nav-item">
+			<span class="nav-icon">⭐</span>
+			<span class="nav-label">Вишлист</span>
+		</a>
+		<a href="recipes.html" title="Рецепты" class="nav-item">
+			<span class="nav-icon">🍳</span>
+			<span class="nav-label">Рецепты</span>
+		</a>
+		<a href="todolist.html" title="Список дел" class="nav-item">
+			<span class="nav-icon">✅</span>
+			<span class="nav-label">Дела</span>
+		</a>
+		<a href="mediateka.html" title="Медиатека" class="nav-item">
+			<span class="nav-icon">🎬</span>
+			<span class="nav-label">Медиатека</span>
+		</a>
 	</nav>
 	<script src="../auth.js"></script>
 	<script src="../todolist.js"></script>

@@ -6,6 +6,22 @@
 	<title>Наше местечко</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+	
+	<!-- PWA Meta Tags -->
+	<meta name="theme-color" content="#b8a3ff">
+	<meta name="description" content="Личное пространство для дневника, желаний, рецептов и планов">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-title" content="PUFFY">
+	<meta name="application-name" content="PUFFY">
+	<meta name="msapplication-TileColor" content="#b8a3ff">
+	<meta name="msapplication-config" content="browserconfig.xml">
+	
+	<!-- PWA Manifest -->
+	<link rel="manifest" href="manifest.json">
+	
+	<!-- Apple Touch Icon -->
+	<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9InVybCgjZ3JhZDApIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQwIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmOWVjNTtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYjhhM2ZmO3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5QVUZGWTwvdGV4dD4KPC9zdmc+">
 </head>
 <body>
 	<!--Фон-->
@@ -69,11 +85,26 @@
 		</section>
 	</main>
 	<nav class="bottom-nav" aria-label="Навигация по разделам">
-		<a href="pages/diary.html" title="Дневник">📔 Дневник</a>
-		<a href="pages/wishlist.html" title="Вишлист">⭐ Вишлист</a>
-		<a href="pages/recipes.html" title="Рецепты">🍳 Рецепты</a>
-		<a href="pages/todolist.html" title="Список дел">✅ Дела</a>
-		<a href="pages/mediateka.html" title="Медиатека">🎬 Медиатека</a>
+		<a href="pages/diary.html" title="Дневник" class="nav-item">
+			<span class="nav-icon">📔</span>
+			<span class="nav-label">Дневник</span>
+		</a>
+		<a href="pages/wishlist.html" title="Вишлист" class="nav-item">
+			<span class="nav-icon">⭐</span>
+			<span class="nav-label">Вишлист</span>
+		</a>
+		<a href="pages/recipes.html" title="Рецепты" class="nav-item">
+			<span class="nav-icon">🍳</span>
+			<span class="nav-label">Рецепты</span>
+		</a>
+		<a href="pages/todolist.html" title="Список дел" class="nav-item">
+			<span class="nav-icon">✅</span>
+			<span class="nav-label">Дела</span>
+		</a>
+		<a href="pages/mediateka.html" title="Медиатека" class="nav-item">
+			<span class="nav-icon">🎬</span>
+			<span class="nav-label">Медиатека</span>
+		</a>
 	</nav>
 	<script src="auth.js"></script>
 	<script>
@@ -88,6 +119,25 @@
 		// Текущая дата
 		const options = { day: 'numeric', month: 'long' };
 		document.getElementById('current-date').textContent = new Date().toLocaleDateString('ru-RU', options);
+		
+		// Активация текущего раздела в мобильном меню
+		function setActiveNavItem() {
+			const currentPath = window.location.pathname;
+			const navItems = document.querySelectorAll('.nav-item');
+			
+			navItems.forEach(item => {
+				item.classList.remove('active');
+				const href = item.getAttribute('href');
+				
+				// Проверяем совпадение пути
+				if (currentPath.includes(href) || 
+					(currentPath === '/' && href === 'index.html') ||
+					(currentPath.endsWith('index.html') && href === 'index.html')) {
+					item.classList.add('active');
+				}
+			});
+		}
+		
 		// Выпадающее меню «Добавить запись»
 		(function () {
 			var btn = document.getElementById('add-entry-btn');
@@ -111,6 +161,22 @@
 				if (dropdown.hidden) open(); else close();
 			});
 		})();
+		
+		// Регистрация Service Worker для PWA
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('/sw.js')
+					.then(function(registration) {
+						console.log('Service Worker зарегистрирован успешно:', registration.scope);
+					})
+					.catch(function(error) {
+						console.log('Ошибка регистрации Service Worker:', error);
+					});
+			});
+		}
+		
+		// Инициализация активного пункта меню
+		setActiveNavItem();
 	</script>
 </body>
 </html>
