@@ -37,6 +37,7 @@
 			<a href="pages/recipes.html">Рецепты</a>
 			<a href="pages/todolist.html">Список дел</a>
 			<a href="pages/mediateka.html">Медиатека</a>
+			<a href="profile.html" id="profile-link" style="display: none;">👤 Профиль</a>
 			<a href="#" onclick="logout()" class="logout-btn">Выход</a>
 		</nav>
 		<header class="hero">
@@ -106,10 +107,19 @@
 			<span class="nav-label">Медиатека</span>
 		</a>
 	</nav>
-	<script src="auth.js"></script>
+	<script src="auth-system.js"></script>
 	<script>
-		if (localStorage.getItem("auth") !== "true") {
-   		 window.location.href = "login.html";
+		// Инициализация системы авторизации
+		const authSystem = new AuthSystem();
+		
+		// Проверяем авторизацию
+		if (!authSystem.isAuthenticated()) {
+			window.location.href = "login-new.html";
+		}
+		
+		// Показываем ссылку на профиль если авторизован
+		if (authSystem.isAuthenticated()) {
+			document.getElementById('profile-link').style.display = 'inline-block';
 		}
 	</script>
 	<script src="quotes.js"></script>

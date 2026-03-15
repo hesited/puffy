@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — PUFFY</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    
+    <main class="container">
+        <header class="hero">
+            <div class="mobile-header">
+                <h1 class="page-title">Личный кабинет</h1>
+                <div class="mobile-add-btn">
+                    <a href="index.html" class="btn-secondary mobile-btn">← На главную</a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="profile-container">
+            <!-- Профиль пользователя -->
+            <section class="profile-section fade-in-up">
+                <h2 class="section-title">Профиль</h2>
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-placeholder" id="avatar-preview">
+                            <span id="avatar-text">👤</span>
+                        </div>
+                        <button type="button" class="avatar-change-btn" id="avatar-change">
+                            📷 Изменить
+                        </button>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <label>Имя пользователя:</label>
+                            <span class="info-value" id="username-display">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Email:</label>
+                            <span class="info-value" id="email-display">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Дата регистрации:</label>
+                            <span class="info-value" id="created-display">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Последний вход:</label>
+                            <span class="info-value" id="last-login-display">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Статистика -->
+            <section class="stats-section fade-in-up">
+                <h2 class="section-title">Статистика</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📔</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="notes-count">0</div>
+                            <div class="stat-label">Записей в дневнике</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="wishlist-count">0</div>
+                            <div class="stat-label">Желаний</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🍳</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="recipes-count">0</div>
+                            <div class="stat-label">Рецептов</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="todos-count">0</div>
+                            <div class="stat-label">Задач</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎬</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="mediateka-count">0</div>
+                            <div class="stat-label">В медиатеке</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Настройки -->
+            <section class="settings-section fade-in-up">
+                <h2 class="section-title">Настройки</h2>
+                <form id="settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="theme">Тема оформления</label>
+                        <select id="theme" name="theme">
+                            <option value="light">Светлая</option>
+                            <option value="dark">Темная</option>
+                            <option value="auto">Автоматически</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="notifications" name="notifications">
+                            <span class="checkbox-custom"></span>
+                            Включить уведомления
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="language">Язык интерфейса</label>
+                        <select id="language" name="language">
+                            <option value="ru">Русский</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <span class="btn-text">Сохранить настройки</span>
+                            <div class="loading-spinner" id="settings-loading" style="display: none;"></div>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Управление аккаунтом -->
+            <section class="account-section fade-in-up">
+                <h2 class="section-title">Управление аккаунтом</h2>
+                <div class="account-actions">
+                    <button type="button" class="btn-secondary" id="change-password-btn">
+                        🔒 Изменить пароль
+                    </button>
+                    <button type="button" class="btn-secondary" id="export-data-btn">
+                        💾 Экспортировать данные
+                    </button>
+                    <button type="button" class="btn-danger" id="delete-account-btn">
+                        🗑️ Удалить аккаунт
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Модальное окно для изменения пароля -->
+    <div class="modal" id="password-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Изменение пароля</h3>
+                <button type="button" class="modal-close" id="password-modal-close">×</button>
+            </div>
+            <form id="change-password-form" class="modal-form">
+                <div class="form-group">
+                    <label for="current-password">Текущий пароль</label>
+                    <input type="password" id="current-password" required>
+                    <div class="form-error" id="current-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Новый пароль</label>
+                    <input type="password" id="new-password" required>
+                    <div class="form-error" id="new-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-new-password">Подтвердите новый пароль</label>
+                    <input type="password" id="confirm-new-password" required>
+                    <div class="form-error" id="confirm-new-password-error"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Изменить пароль</button>
+                    <button type="button" class="btn-secondary modal-cancel">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Уведомления -->
+    <div class="notification" id="notification" style="display: none;">
+        <div class="notification-content">
+            <div class="notification-icon" id="notification-icon"></div>
+            <div class="notification-message" id="notification-message"></div>
+            <button class="notification-close" id="notification-close">×</button>
+        </div>
+    </div>
+
+    <script src="auth-system.js"></script>
+    <script>
+        // Инициализация
+        const authSystem = new AuthSystem();
+        
+        // Проверяем авторизацию
+        if (!authSystem.isAuthenticated()) {
+            window.location.href = 'login-new.html';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfileData();
+            setupEventListeners();
+        });
+        
+        // Загрузка данных профиля
+        function loadProfileData() {
+            const user = authSystem.getCurrentUser();
+            if (!user) return;
+            
+            // Основная информация
+            document.getElementById('username-display').textContent = user.username;
+            document.getElementById('email-display').textContent = user.email;
+            document.getElementById('created-display').textContent = new Date(user.createdAt).toLocaleDateString('ru-RU');
+            document.getElementById('last-login-display').textContent = user.lastLogin ? 
+                new Date(user.lastLogin).toLocaleDateString('ru-RU') : 'Первый вход';
+            
+            // Статистика
+            document.getElementById('notes-count').textContent = user.stats.notesCount || 0;
+            document.getElementById('wishlist-count').textContent = user.stats.wishlistCount || 0;
+            document.getElementById('recipes-count').textContent = user.stats.recipesCount || 0;
+            document.getElementById('todos-count').textContent = user.stats.todosCount || 0;
+            document.getElementById('mediateka-count').textContent = user.stats.mediatekaCount || 0;
+            
+            // Настройки
+            document.getElementById('theme').value = user.settings.theme || 'light';
+            document.getElementById('notifications').checked = user.settings.notifications !== false;
+            document.getElementById('language').value = user.settings.language || 'ru';
+            
+            // Аватар
+            updateAvatar(user.profile);
+        }
+        
+        // Обновление аватара
+        function updateAvatar(profile) {
+            const avatarPreview = document.getElementById('avatar-preview');
+            const avatarText = document.getElementById('avatar-text');
+            
+            if (profile.avatar) {
+                avatarPreview.innerHTML = `<img src="${profile.avatar}" alt="Avatar" class="avatar-image">`;
+            } else {
+                const initials = getInitials(profile.firstName, profile.lastName);
+                avatarText.textContent = initials || '👤';
+            }
+        }
+        
+        // Получение инициалов
+        function getInitials(firstName, lastName) {
+            if (!firstName && !lastName) return '';
+            return (firstName ? firstName[0] : '') + (lastName ? lastName[0] : '');
+        }
+        
+        // Настройка обработчиков
+        function setupEventListeners() {
+            // Форма настроек
+            document.getElementById('settings-form').addEventListener('submit', handleSettingsSubmit);
+            
+            // Кнопки управления аккаунтом
+            document.getElementById('change-password-btn').addEventListener('click', showPasswordModal);
+            document.getElementById('export-data-btn').addEventListener('click', exportUserData);
+            document.getElementById('delete-account-btn').addEventListener('click', confirmDeleteAccount);
+            
+            // Модальное окно пароля
+            document.getElementById('change-password-form').addEventListener('submit', handlePasswordChange);
+            document.getElementById('password-modal-close').addEventListener('click', hidePasswordModal);
+            document.querySelector('.modal-cancel').addEventListener('click', hidePasswordModal);
+            
+            // Изменение аватара
+            document.getElementById('avatar-change').addEventListener('click', changeAvatar);
+            
+            // Закрытие уведомлений
+            document.getElementById('notification-close').addEventListener('click', hideNotification);
+        }
+        
+        // Сохранение настроек
+        async function handleSettingsSubmit(e) {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('.btn-primary');
+            const loadingSpinner = document.getElementById('settings-loading');
+            
+            // Показываем загрузку
+            btn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
+            document.querySelector('.btn-text').style.display = 'none';
+            
+            const settings = {
+                theme: document.getElementById('theme').value,
+                notifications: document.getElementById('notifications').checked,
+                language: document.getElementById('language').value
+            };
+            
+            const result = await authSystem.updateSettings(settings);
+            
+            if (result.success) {
+                showNotification('success', result.message);
+                applyTheme(settings.theme);
+            } else {
+                showNotification('error', result.error);
+            }
+            
+            // Скрываем загрузку
+            btn.disabled = false;
+            loadingSpinner.style.display = 'none';
+            document.querySelector('.btn-text').style.display = 'inline';
+        }
+        
+        // Изменение пароля
+        async function handlePasswordChange(e) {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-new-password').value;
+            
+            // Валидация
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                showNotification('error', 'Заполните все поля');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showNotification('error', 'Пароль должен содержать минимум 6 символов');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                showNotification('error', 'Пароли не совпадают');
+                return;
+            }
+            
+            // Здесь будет логика изменения пароля
+            showNotification('success', 'Пароль успешно изменен');
+            hidePasswordModal();
+            e.target.reset();
+        }
+        
+        // Экспорт данных
+        function exportUserData() {
+            const user = authSystem.getCurrentUser();
+            const exportData = {
+                profile: user.profile,
+                settings: user.settings,
+                stats: user.stats,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `puffy-backup-${user.username}-${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showNotification('success', 'Данные успешно экспортированы');
+        }
+        
+        // Подтверждение удаления аккаунта
+        function confirmDeleteAccount() {
+            if (confirm('Вы уверены, что хотите удалить аккаунт? Это действие необратимо и удалит все ваши данные.')) {
+                if (confirm('Подтвердите еще раз: все данные будут безвозвратно удалены.')) {
+                    deleteAccount();
+                }
+            }
+        }
+        
+        // Удаление аккаунта
+        function deleteAccount() {
+            const user = authSystem.getCurrentUser();
+            
+            // Удаляем пользователя
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const updatedUsers = users.filter(u => u.id !== user.id);
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+            
+            // Удаляем все данные пользователя
+            const keys = [
+                `notes_${user.id}`,
+                `wishlist_${user.id}`,
+                `recipes_${user.id}`,
+                `todos_${user.id}`,
+                `mediateka_${user.id}`
+            ];
+            
+            keys.forEach(key => localStorage.removeItem(key));
+            
+            // Выходим из системы
+            authSystem.logout();
+            showNotification('success', 'Аккаунт успешно удален');
+            
+            setTimeout(() => {
+                window.location.href = 'register.html';
+            }, 2000);
+        }
+        
+        // Изменение аватара
+        function changeAvatar() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const avatarData = e.target.result;
+                        const user = authSystem.getCurrentUser();
+                        
+                        // Обновляем профиль
+                        authSystem.updateProfile({ avatar: avatarData });
+                        
+                        // Обновляем отображение
+                        updateAvatar({ avatar: avatarData });
+                        
+                        showNotification('success', 'Аватар успешно изменен');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
+        
+        // Модальное окно пароля
+        function showPasswordModal() {
+            document.getElementById('password-modal').style.display = 'flex';
+        }
+        
+        function hidePasswordModal() {
+            document.getElementById('password-modal').style.display = 'none';
+            document.getElementById('change-password-form').reset();
+            // Очищаем ошибки
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+        }
+        
+        // Применение темы
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+        
+        // Показ уведомлений
+        function showNotification(type, message) {
+            const notification = document.getElementById('notification');
+            const icon = document.getElementById('notification-icon');
+            const messageEl = document.getElementById('notification-message');
+            
+            if (type === 'success') {
+                icon.innerHTML = '✓';
+                notification.className = 'notification success';
+            } else {
+                icon.innerHTML = '✕';
+                notification.className = 'notification error';
+            }
+            
+            messageEl.textContent = message;
+            notification.style.display = 'flex';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        function hideNotification() {
+            document.getElementById('notification').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,180 @@
+/* Анимации появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes staggerIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Базовые классы анимаций */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+}
+
+.stagger-in {
+    animation: staggerIn 0.5s ease-out forwards;
+}
+
+/* Анимация для hero секции */
+.hero {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Анимация для карточек */
+.card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.quote-card {
+    animation-delay: 0.1s;
+}
+
+.song-card {
+    animation-delay: 0.2s;
+}
+
+.weather-card {
+    animation-delay: 0.3s;
+}
+
+/* Анимация для элементов навигации */
+.top-menu a {
+    animation: fadeInLeft 0.6s ease-out backwards;
+}
+
+.top-menu a:nth-child(1) { animation-delay: 0.1s; }
+.top-menu a:nth-child(2) { animation-delay: 0.2s; }
+.top-menu a:nth-child(3) { animation-delay: 0.3s; }
+.top-menu a:nth-child(4) { animation-delay: 0.4s; }
+.top-menu a:nth-child(5) { animation-delay: 0.5s; }
+.top-menu a:nth-child(6) { animation-delay: 0.6s; }
+
+.bottom-nav a {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.bottom-nav a:nth-child(1) { animation-delay: 0.1s; }
+.bottom-nav a:nth-child(2) { animation-delay: 0.2s; }
+.bottom-nav a:nth-child(3) { animation-delay: 0.3s; }
+.bottom-nav a:nth-child(4) { animation-delay: 0.4s; }
+.bottom-nav a:nth-child(5) { animation-delay: 0.5s; }
+
+/* Анимация для элементов списка */
+.note-item,
+.wishlist-item,
+.recipe-item,
+.todo-item,
+.mediateka-item {
+    animation: staggerIn 0.5s ease-out backwards;
+}
+
+.note-item:nth-child(1) { animation-delay: 0.05s; }
+.note-item:nth-child(2) { animation-delay: 0.1s; }
+.note-item:nth-child(3) { animation-delay: 0.15s; }
+.note-item:nth-child(4) { animation-delay: 0.2s; }
+.note-item:nth-child(5) { animation-delay: 0.25s; }
+
+.wishlist-item:nth-child(1) { animation-delay: 0.05s; }
+.wishlist-item:nth-child(2) { animation-delay: 0.1s; }
+.wishlist-item:nth-child(3) { animation-delay: 0.15s; }
+.wishlist-item:nth-child(4) { animation-delay: 0.2s; }
+.wishlist-item:nth-child(5) { animation-delay: 0.25s; }
+
+.recipe-item:nth-child(1) { animation-delay: 0.05s; }
+.recipe-item:nth-child(2) { animation-delay: 0.1s; }
+.recipe-item:nth-child(3) { animation-delay: 0.15s; }
+.recipe-item:nth-child(4) { animation-delay: 0.2s; }
+.recipe-item:nth-child(5) { animation-delay: 0.25s; }
+
+.todo-item:nth-child(1) { animation-delay: 0.05s; }
+.todo-item:nth-child(2) { animation-delay: 0.1s; }
+.todo-item:nth-child(3) { animation-delay: 0.15s; }
+.todo-item:nth-child(4) { animation-delay: 0.2s; }
+.todo-item:nth-child(5) { animation-delay: 0.25s; }
+
+.mediateka-item:nth-child(1) { animation-delay: 0.05s; }
+.mediateka-item:nth-child(2) { animation-delay: 0.1s; }
+.mediateka-item:nth-child(3) { animation-delay: 0.15s; }
+.mediateka-item:nth-child(4) { animation-delay: 0.2s; }
+.mediateka-item:nth-child(5) { animation-delay: 0.25s; }
+
+/* Анимация для кнопок */
+.add-entry-btn,
+.btn-primary,
+.btn-secondary {
+    animation: scaleIn 0.4s ease-out backwards;
+}
+
+/* Анимация для форм */
+.form-group {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
 @property --puff {
     syntax: "<length>";
     initial-value: 0px;
@@ -536,38 +713,219 @@ transform: translate(0px, 0px);
         0 2px 8px rgba(0, 0, 0, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
     overflow: hidden;
-    transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease,
-                box-shadow 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+}
+
+.top-menu a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 1;
 }
 
 .top-menu a::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
     background: radial-gradient(
-        circle at var(--x) var(--y),
-        rgba(255, 255, 255, 0.65),
-        transparent 55%
+        circle,
+        rgba(255, 255, 255, 0.6),
+        transparent 70%
     );
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: 0;
 }
 
 .top-menu a:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.22);
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.1),
+        0 12px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
+.top-menu a:hover::before {
+    left: 100%;
+}
+
 .top-menu a:hover::after {
-    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+.top-menu a:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* Улучшенные hover эффекты для bottom-nav */
+.bottom-nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    padding: 8px 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-nav a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(
+        circle,
+        rgba(184, 163, 255, 0.3),
+        transparent 70%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: 0;
+}
+
+.bottom-nav a:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav a:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-nav a:active {
+    transform: translateY(0) scale(0.95);
+    transition: all 0.1s ease;
+}
+
+/* Улучшенные hover эффекты для кнопок */
+.btn-primary,
+.btn-secondary {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.4),
+        transparent 70%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* Улучшенные hover эффекты для карточек */
+.card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Улучшенные hover эффекты для элементов списка */
+.note-item:hover,
+.wishlist-item:hover,
+.recipe-item:hover,
+.todo-item:hover,
+.mediateka-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Улучшенные hover эффекты для иконок */
+.note-toggle:hover,
+.note-delete:hover,
+.wishlist-item-delete:hover,
+.recipe-delete:hover,
+.todo-delete:hover,
+.mediateka-item-delete:hover {
+    transform: scale(1.1) rotate(5deg);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.note-toggle:active,
+.note-delete:active,
+.wishlist-item-delete:active,
+.recipe-delete:active,
+.todo-delete:active,
+.mediateka-item-delete:active {
+    transform: scale(0.95) rotate(-5deg);
+    transition: all 0.1s ease;
 }
 
 .top-menu .home-btn {
@@ -773,6 +1131,1220 @@ background: rgba(255,255,255,0.6);
 
 }
 */
+
+/* Стили для поиска */
+.search-container {
+    margin-bottom: 25px;
+    animation: fadeInUp 0.6s ease-out backwards;
+    animation-delay: 0.2s;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+}
+
+.search-input-wrapper:focus-within {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 16px 12px 45px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #999;
+    transition: opacity 0.3s ease;
+}
+
+.search-input:focus::placeholder {
+    opacity: 0.7;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #666;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.search-input-wrapper:focus-within .search-icon {
+    color: #b8a3ff;
+}
+
+.search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-clear.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.search-clear:hover {
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-clear:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* Стили для результатов поиска */
+.search-results {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.search-results h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.search-results-count {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.search-no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 15px;
+}
+
+.search-no-results-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Подсветка найденного текста */
+.search-highlight {
+    background: linear-gradient(120deg, #ffeb3b, #ffc107);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #333;
+    animation: highlightPulse 0.6s ease-out;
+}
+
+@keyframes highlightPulse {
+    0% {
+        background: linear-gradient(120deg, #ffeb3b, #ffc107);
+        transform: scale(1.05);
+    }
+    100% {
+        background: linear-gradient(120deg, #ffeb3b, #ffc107);
+        transform: scale(1);
+    }
+}
+
+/* Стили для фильтров */
+.filters-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    animation: fadeInUp 0.6s ease-out backwards;
+    animation-delay: 0.3s;
+}
+
+.filter-chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    user-select: none;
+}
+
+.filter-chip:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px) scale(1.02);
+    color: #333;
+}
+
+.filter-chip.active {
+    background: linear-gradient(135deg, #b8a3ff, #ff9ec5);
+    border-color: #b8a3ff;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(184, 163, 255, 0.3);
+}
+
+.filter-chip:active {
+    transform: scale(0.95);
+    transition: all 0.1s ease;
+}
+
+/* Улучшенные загрузочные состояния */
+.skeleton-loader {
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 12px;
+}
+
+@keyframes skeletonPulse {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Skeleton для карточек */
+.skeleton-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.skeleton-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.skeleton-author {
+    width: 80px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+.skeleton-date {
+    width: 100px;
+    height: 14px;
+    border-radius: 7px;
+}
+
+.skeleton-location {
+    width: 120px;
+    height: 14px;
+    border-radius: 7px;
+}
+
+.skeleton-title {
+    width: 60%;
+    height: 24px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.skeleton-text {
+    width: 100%;
+    height: 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.skeleton-text:last-child {
+    width: 80%;
+    margin-bottom: 0;
+}
+
+/* Skeleton для кнопок */
+.skeleton-button {
+    width: 120px;
+    height: 44px;
+    border-radius: 22px;
+    margin: 10px auto;
+}
+
+/* Skeleton для форм */
+.skeleton-form-group {
+    margin-bottom: 20px;
+}
+
+.skeleton-label {
+    width: 100px;
+    height: 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.skeleton-input {
+    width: 100%;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.skeleton-textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 12px;
+}
+
+/* Skeleton для изображений */
+.skeleton-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #b8a3ff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Loading dots */
+.loading-dots {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.loading-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #b8a3ff;
+    animation: loadingDot 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+.loading-dots span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes loadingDot {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #b8a3ff, #ff9ec5);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    animation: progressShimmer 2s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Улучшенные сообщения о загрузке */
+.loading-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loading-message-icon {
+    font-size: 32px;
+    opacity: 0.7;
+}
+
+.loading-message-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Анимация появления для загрузочных состояний */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для загрузочных состояний */
+@media (max-width: 768px) {
+    .skeleton-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .skeleton-title {
+        height: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .skeleton-text {
+        height: 14px;
+        margin-bottom: 6px;
+    }
+    
+    .skeleton-button {
+        width: 100px;
+        height: 40px;
+    }
+    
+    .skeleton-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .loading-message {
+        padding: 30px 15px;
+    }
+    
+    .loading-message-icon {
+        font-size: 24px;
+    }
+}
+
+/* Стили для страниц авторизации */
+.auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.auth-header .logo {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.auth-header .tagline {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+.auth-form {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.auth-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    color: #333;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: rgba(184, 163, 255, 0.5);
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input::placeholder {
+    color: #999;
+    transition: opacity 0.3s ease;
+}
+
+.auth-form input:focus::placeholder {
+    opacity: 0.7;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    background: rgba(184, 163, 255, 0.1);
+    color: #b8a3ff;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.checkbox-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 8px;
+    height: 8px;
+    background: #b8a3ff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    border-color: #b8a3ff;
+    background: rgba(184, 163, 255, 0.1);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-links p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.auth-link {
+    color: #b8a3ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #ff9ec5;
+    text-decoration: underline;
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: slideInRight 0.4s ease-out;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.notification.success .notification-icon {
+    background: #4caf50;
+    color: white;
+}
+
+.notification.error .notification-icon {
+    background: #f44336;
+    color: white;
+}
+
+.notification.info .notification-icon {
+    background: #2196f3;
+    color: white;
+}
+
+.notification-message {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 300px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.notification-close:hover {
+    color: #666;
+    transform: scale(1.1);
+}
+
+/* Требования к паролю */
+.password-requirements {
+    margin-top: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #666;
+}
+
+.requirement:last-child {
+    margin-bottom: 0;
+}
+
+.requirement-icon {
+    font-weight: bold;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.requirement.valid .requirement-icon {
+    color: #4caf50;
+}
+
+/* Ошибки форм */
+.form-error {
+    color: #f44336;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 16px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Стили для личного кабинета */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-section,
+.stats-section,
+.settings-section,
+.account-section {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    margin: 0 0 25px 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(184, 163, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+/* Профиль */
+.profile-card {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b8a3ff, #ff9ec5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-change-btn {
+    background: rgba(184, 163, 255, 0.2);
+    border: 2px solid rgba(184, 163, 255, 0.3);
+    color: #b8a3ff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.avatar-change-btn:hover {
+    background: rgba(184, 163, 255, 0.3);
+    border-color: rgba(184, 163, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-item label {
+    font-weight: 600;
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(184, 163, 255, 0.3);
+}
+
+.stat-icon {
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(184, 163, 255, 0.2), rgba(255, 158, 197, 0.2));
+    border-radius: 12px;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Настройки */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-form .form-group {
+    margin-bottom: 0;
+}
+
+/* Управление аккаунтом */
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-danger {
+    background: rgba(244, 67, 54, 0.2);
+    border: 2px solid rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}
+
+.btn-danger:hover {
+    background: rgba(244, 67, 54, 0.3);
+    border-color: rgba(244, 67, 54, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Модальные окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideInUp 0.4s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #666;
+    transform: scale(1.1);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-cancel {
+    background: rgba(255, 255, 255, 0.7);
+    color: #666;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-cancel:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+/* Адаптивность для личного кабинета */
+@media (max-width: 768px) {
+    .profile-container {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .profile-section,
+    .stats-section,
+    .settings-section,
+    .account-section {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .profile-info {
+        width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .stat-number {
+        font-size: 24px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 18px;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность для авторизации */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 20px 15px;
+        margin: 20px 10px;
+    }
+    
+    .auth-form {
+        padding: 25px 20px;
+    }
+    
+    .auth-header .logo {
+        font-size: 40px;
+    }
+    
+    .auth-header .tagline {
+        font-size: 14px;
+    }
+    
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    .notification-content {
+        padding: 12px 15px;
+    }
+    
+    .notification-message {
+        max-width: 250px;
+        font-size: 13px;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность для поиска и фильтров */
+@media (max-width: 768px) {
+    .search-container {
+        margin-bottom: 20px;
+    }
+    
+    .search-input {
+        padding: 10px 14px 10px 40px;
+        font-size: 14px;
+    }
+    
+    .search-icon {
+        left: 14px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .search-clear {
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+    
+    .filters-container {
+        gap: 8px;
+    }
+    
+    .filter-chip {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .search-results {
+        padding: 15px;
+    }
+    
+    .search-no-results {
+        padding: 30px 15px;
+    }
+}
 
 /* Стили для формы заметок */
 .form-group {
